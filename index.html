@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Anima Character Creator</title>
+        
+        <!-- CSS from libraries -->
+        <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        
+        <!-- JS from libraries -->
+        <script src="libs/json/json2.js"></script>
+        <script src="libs/jQuery/jquery-3.2.1.min.js"></script>
+        <script src="libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="libs/underscore/underscore1.8.3.min.js"></script>
+        <script src="libs/backbone/backbone.js"></script>
+        <script src="libs/mustache/mustache.js"></script>
+        
+        <!-- Custom JS -->
+        <script src="js/Models/BaseStatsModel.js"></script>
+        <script src="js/Views/BaseStatsView.js"></script>
+        <script src="js/Views/ViewController.js"></script>
+        
+        <!-- Page JS -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.getJSON("json/releaseInfo.json", _.bind(function(data) {
+                    loadVersionInfo(data);
+                }, this));
+                //var mainController = new ViewController();
+                //var base = new BaseStatsView({});
+            });
+            
+            function loadVersionInfo(data) {
+                $('#versionInfo').text("VERSION " + data.Build + " " + data.Version);
+            }
+        </script>
+        
+    </head>
+    <body>
+        <div id="main">
+            <div id="leftBar" class="col-xs-2"></div>
+            <div class="col-xs-8">                
+                <div class="col-xs-offset-4 col-xs-4" style="text-align: center">
+                    <img src="assets/Anima-RPG-Logo-small.png" alt="Anima Beyond Fantasy" title="Anima Beyond Fantasy">
+                </div>
+                <div id="mainContent" class="col-xs-12">
+                    <!-- Nav Tabs -->
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#base" aria-controls="base" role="tab" data-toggle="tab">Base Stats</a></li>
+                        <li role="presentation"><a href="#adv" aria-controls="adv" role="tab" data-toggle="tab">Adv. and Disadv.</a></li>
+                        <li role="presentation"><a href="#combat" aria-controls="combat" role="tab" data-toggle="tab">Combat</a></li>
+                        <li role="presentation"><a href="#SA" aria-controls="SA" role="tab" data-toggle="tab">Secondary Abilities</a></li>
+                        <li role="presentation"><a href="#magic" aria-controls="magic" role="tab" data-toggle="tab">Magic</a></li>
+                        <li role="presentation"><a href="#sephirah" aria-controls="sephirah" role="tab" data-toggle="tab">Arcana Sephirah</a></li>
+                        <li role="presentation"><a href="#psych" aria-controls="psych" role="tab" data-toggle="tab">Psychic</a></li>
+                        <li role="presentation"><a href="#ki" aria-controls="ki" role="tab" data-toggle="tab">Ki and Nemesis</a></li>
+                        <li role="presentation"><a href="#tech" aria-controls="tech" role="tab" data-toggle="tab">Techniques</a></li>
+                        <li role="presentation"><a href="#util" aria-controls="util" role="tab" data-toggle="tab">Utilities</a></li>
+                        <li role="presentation"><a href="#art" aria-controls="art" role="tab" data-toggle="tab">Artifacts</a></li>
+                    </ul>
+                    <!-- Tab Panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active col-xs-12" id="base">
+                            <div class="col-xs-2">
+                                <div class="col-xs-12 form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon fat-addon">Base</span>
+                                        <input type="text" class="form-control" placeholder="Base">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon fat-addon">Special</span>
+                                        <input type="text" class="form-control" placeholder="Base">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon fat-addon">Actual</span>
+                                        <input type="text" class="form-control" placeholder="Base">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-xs-12 form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon fat-addon">Index</span>
+                                        <input type="text" class="form-control" placeholder="Base">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon fat-addon">Natural</span>
+                                        <input type="text" class="form-control" placeholder="Base">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon fat-addon">Max</span>
+                                        <input type="text" class="form-control" placeholder="Base">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="adv"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="combat"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="SA"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="magic"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="sephirah"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="psych"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="ki"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="tech"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="util"></div>
+                        <div role="tabpanel" class="tab-pane col-xs-12" id="art"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="rightBar" class="col-xs-2">
+                <span id="versionInfo" class="label label-default"></span>
+            </div>
+        </div>
+    </body>
+</html>
