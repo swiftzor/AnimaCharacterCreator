@@ -31,8 +31,7 @@
                 $.getJSON("json/releaseInfo.json", _.bind(function(data) {
                     loadVersionInfo(data);
                 }, this));
-                //var mainController = new ViewController();
-                //var base = new BaseStatsView({});
+                var mainController = new ViewController();
             });
             
             function loadVersionInfo(data) {
@@ -65,15 +64,18 @@
                     </ul>
                     <!-- Tab Panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active col-xs-12" id="base">
                             <div class="col-xs-2">
                                 <div class="col-xs-12 form-group">
+									Base
                                     <div class="input-group">
-                                        <span class="input-group-addon fat-addon">Base</span>
-                                        <input type="text" class="form-control" placeholder="Base">
+                                        <input type="text" class="form-control base" placeholder="BASE">
+										<span class="input-group-addon">ACT</span>
+                                        <input type="text" class="form-control act" placeholder="ACT">
+										<span class="input-group-addon">BONUS</span>
+                                        <input type="text" class="form-control " placeholder="BONUS">
                                     </div>
+									Special
                                     <div class="input-group">
-                                        <span class="input-group-addon fat-addon">Special</span>
                                         <input type="text" class="form-control" placeholder="Base">
                                     </div>
                                     <div class="input-group">
