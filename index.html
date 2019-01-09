@@ -24,13 +24,14 @@
         <script src="js/Models/BaseStatsModel.js"></script>
         <script src="js/Views/BaseStatsView.js"></script>
         <script src="js/Views/ViewController.js"></script>
+		
+		<!-- Data JS -->
+		<script src="data/releaseInfo.js"></script>
         
         <!-- Page JS -->
         <script type="text/javascript">
             $(document).ready(function() {
-                $.getJSON("json/releaseInfo.json", _.bind(function(data) {
-                    loadVersionInfo(data);
-                }, this));
+                loadVersionInfo(releaseInfo);
                 var mainController = new ViewController();
             });
             
@@ -63,7 +64,7 @@
                         <li role="presentation"><a href="#art" aria-controls="art" role="tab" data-toggle="tab">Artifacts</a></li>
                     </ul>
                     <!-- Tab Panes -->
-                    <div class="tab-content">
+                    <div class="tab-content" class="tab-pane col-xs-12" id="base">
                             <div class="col-xs-2">
                                 <div class="col-xs-12 form-group">
 									Base
