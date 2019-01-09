@@ -6,5 +6,15 @@
 
 var BaseStatsModel= Backbone.View.extend({
     initialize: function(options) {},
-    attributes: {}
+    attributes: {
+		stats: [0, 0, 0, 0, 0, 0, 0, 0],
+		baseLife: 0,
+		lifeMultiples: 0,
+		baseMove: 0,
+		gnosis: 0,
+		natura: 0,
+		resistances: {},
+		fatigue: 0,
+		presence: 0
+	}
 });

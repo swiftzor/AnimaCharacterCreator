@@ -64,6 +64,7 @@ var BaseStatsView = Backbone.View.extend({
 	},
 	setBaseLife: function(e) {
 		var con = $(e.target).val();
+		con += 1;
 		$('#baseLifeField').val(this.attributes.baseLifePoints[con]);
 	},
 	setBaseMove: function(e) {

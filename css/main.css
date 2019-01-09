@@ -24,6 +24,11 @@ body{
     right: 0%;
 }
 
+#editCharInfo {
+	margin-top: 120px;
+	right: 100%;
+}
+
 .input-group-addon {
     min-width: 35px;
 }
