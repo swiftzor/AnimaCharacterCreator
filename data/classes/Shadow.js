@@ -1,11 +1,11 @@
-var accrobaticWarrior = {
+var shadow = {
     "info" : {
-        "description" : "Accrobatic Warriors are Fighters who have specialized in getting the biggest advantage out of their speed and agility. Their greatest benefit lies in being a step ahead of their adversaries and trying to finish them off before tehy can react. They also prefer to dodge attacks, often standing as far as possible from where their enemy's blows actually land. They possess excellent mobility, and they can jump, fall, or run with a fleetness that few can match. Acrobatic Warriors can play almost any role in society, but they generally gravitate toward professions associated with combat - such as duelists or swordsmen."
+        "description" : ""
     },
     "char_base": {
-        "archetype": "Fighter",
+        "archetype": "Fighter, Prowler",
         "lpmult": 20,
-        "lplvl" : 10,
+        "lplvl" : 5,
         "initlvl" : 10,
         "mklvl" : 25,
         "inatepplvl" : 0.33
@@ -59,16 +59,13 @@ var accrobaticWarrior = {
             }
         },
         "secondary" : {
-            "ath" : {
-                "acro" : 10,
-                "jump" : 10,
-                "athl" : 10
+            "per" : {
+                "noti" : 10,
+                "sech" : 10
             },
-            "soc" : {
-                "style" : 10
-            },
-            "cre" : {
-                "sloh" : 10
+            "sub" : {
+                "hide" : 10,
+                "stel" : 10
             }
         }
     }

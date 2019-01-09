@@ -8,14 +8,13 @@ and open the template in the editor.
     Author     : jod7896
 */
 
-#leftBar {
+body{
     background-color: darkslategray;
     height: 100%;
 }
 
-#rightBar {
-    background-color: darkslategray;
-    height: 100%;
+#mainContent, #header {
+    background-color: white;
 }
 
 #versionInfo {
@@ -39,4 +38,12 @@ and open the template in the editor.
 
 .cat-head {
     margin-top: 10px;
+}
+
+.form-control[readonly]{
+	background-color: white;
+}
+
+.tab-pane {
+	height: 100%
 }

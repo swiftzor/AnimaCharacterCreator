@@ -7,7 +7,10 @@
 var BaseStatsView = Backbone.View.extend({
     el: '#base',
     events: {
-        'change .base': 'setBonus'
+        'change .base' : 'setBonus',
+        'change .act' : 'setActBonus',
+		'change #baseCON' : 'setBaseLife',
+		'change #baseAGI' : 'setBaseMove'
     },
     initialize: function(options) {
         this.model = options.model;
@@ -16,9 +19,9 @@ var BaseStatsView = Backbone.View.extend({
     template: '<br><div class="col-xs-5">{{{stats}}}</div><div class="col-xs-2">{{{life}}}</div><div class="col-xs-3">{{{move}}}</div>',
     statTemplate: '<h3>Stats</h3>{{#stats}}<label>{{statLong}}</label><div class="input-group"><input id="base{{stat}}" type="text"' +
                   'class="form-control base" placeholder="BASE" aria-stat="{{stat}}"><span class="input-group-addon">ACT.</span><input id="act{{stat}}"' +
-                  'type="text" class="form-control act" placeholder="ACT."><span class="input-group-addon">BONUS</span>' +
-                  '<input id="bonus{{stat}}" type="text" class="form-control" placeholder="BONUS"></div>{{/stats}}',
-    lifeTemplate: '<h3>Health Points</h3>{{#life}}<label>{{title}}</label><div class="input-group"><input id="{{title}}LifeField"' + 
+                  'type="text" class="form-control act" placeholder="ACT." aria-stat="{{stat}}"><span class="input-group-addon">BONUS</span>' +
+                  '<input id="bonus{{stat}}" type="text" class="form-control readonly" placeholder="BONUS" readonly></div>{{/stats}}',
+    lifeTemplate: '<h3>Health Points</h3>{{#life}}<label>{{title}}</label><div class="input-group"><input id="{{id}}LifeField"' + 
                   ' type="text" class="form-control" placeholder="{{hold}}"></div>{{/life}}',
     moveTemplate: '<h3>Movement</h3>{{#move}}<label>{{title}}</label><div class="input-group">' +
                   '<input id="{{id}}MoveField" type="text" class="form-control" placeholder="{{hold}}"></div>{{/move}}',
@@ -29,8 +32,8 @@ var BaseStatsView = Backbone.View.extend({
         stats: [{stat: "AGI", statLong: "Agility"}, {stat: "CON", statLong: "Constitution"}, {stat: "DEX", statLong: "Dexterity"}, 
 			{stat: "STR", statLong: "Strength"}, {stat: "INT", statLong: "Intelligence"}, {stat: "PER", statLong: "Perception"}, 
 			{stat: "WP", statLong: "Willpower"}, {stat: "POW", statLong: "Power"}],
-        life: [{title: "Multiple Cost", hold: "Mult Cost"}, {title: "Base", hold: "Base"}, {title: "Class Bonus", hold: "Class Bonus"}, 
-            {title: "Number of Multiples", hold: "# of Multiples"}, {title: "Final", hold: "Final"}, {title: "Actual", hold: "Actual"}],
+        life: [{title: "Multiple Cost", hold: "Mult Cost", id: "mult"}, {title: "Base", hold: "Base", id: "base"}, {title: "Class Bonus", hold: "Class Bonus", id: "class"}, 
+            {title: "Number of Multiples", hold: "# of Multiples", id: "num"}, {title: "Final", hold: "Final", id: "final"}, {title: "Actual", hold: "Actual", id: "act"}],
         move: [{title: "Base", id: "base", hold: "Base Move"}, {title: "Penalty", id: "pen", hold: "Penalty"}, 
             {title: "Bonus", id: "bon", hold: "Bonus"}, {title: "Final", id: "fin", hold: "Final"}, 
             {title: "Movement per Turn", id: "act", hold: "Actual"}, {title: "1/4 Move", id: "quart", hold: "1/4 Move"},
@@ -43,7 +46,29 @@ var BaseStatsView = Backbone.View.extend({
         var html = Mustache.to_html(this.template, {stats: statsHtml, life: lifeHtml, move: moveHtml});
         this.$el.html(html);
     },
-    setBonus : function(e) {
-        console.log(e);
-    }
+    setBonus: function(e) {
+		var stat = $(e.target).attr('aria-stat');
+		var statValue = $(e.target).val();
+		$('#bonus' + stat).val(this.attributes.statBonuses[statValue]);		
+    },
+	setActBonus: function(e) {
+		var stat = $(e.target).attr('aria-stat');
+		var actStatValue = $('#act' + stat).val();
+		if(actStatValue != '') {
+			$('#bonus' + stat).val(this.attributes.statBonuses[actStatValue]);	
+		}
+		else {
+			var statValue = $('#base' + stat).val();
+			$('#bonus' + stat).val(this.attributes.statBonuses[statValue]);	
+		}
+	},
+	setBaseLife: function(e) {
+		var con = $(e.target).val();
+		$('#baseLifeField').val(this.attributes.baseLifePoints[con]);
+	},
+	setBaseMove: function(e) {
+		var agi = $(e.target).val();
+		$('#baseMoveField').val(this.attributes.baseMovement[agi]);
+		$('#finMoveField').val(this.attributes.baseMovement[agi]);
+	}
 });

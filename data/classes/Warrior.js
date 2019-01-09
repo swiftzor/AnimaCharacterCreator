@@ -1,12 +1,12 @@
-var accrobaticWarrior = {
+var warrior = {
     "info" : {
-        "description" : "Accrobatic Warriors are Fighters who have specialized in getting the biggest advantage out of their speed and agility. Their greatest benefit lies in being a step ahead of their adversaries and trying to finish them off before tehy can react. They also prefer to dodge attacks, often standing as far as possible from where their enemy's blows actually land. They possess excellent mobility, and they can jump, fall, or run with a fleetness that few can match. Acrobatic Warriors can play almost any role in society, but they generally gravitate toward professions associated with combat - such as duelists or swordsmen."
+        "description" : "The Warrior is the virtual embodiment of the Fighter Archetype. This class covers those who have completely dedicated their lives to combat, and it includes those who are best able to fully exploit their warlike talents. this inclination leads them not only to master the use of weapons, but also to use their spiritual energy in a fight.  Warriors find it easy to develop great knowledge in the field of military tactics and become leaders of armies.  Traditionally, Warriors can end up in a wide variety of occupations, from mere mercenaries to sworn knights."
     },
     "char_base": {
         "archetype": "Fighter",
-        "lpmult": 20,
-        "lplvl" : 10,
-        "initlvl" : 10,
+        "lpmult": 15,
+        "lplvl" : 15,
+        "initlvl" : 5,
         "mklvl" : 25,
         "inatepplvl" : 0.33
     },
@@ -14,7 +14,7 @@ var accrobaticWarrior = {
         "combat" : {
             "limit" : 60,
             "attack" : 2,
-            "block" : 3,
+            "block" : 2,
             "dodge" : 2,
             "armor" : 2,
             "ki" : 2,
@@ -43,7 +43,12 @@ var accrobaticWarrior = {
         "int" : 3,
         "vig" : 2,
         "sub" : 2,
-        "cre" : 2
+        "cre" : 2,
+        "reduced" : {
+            "vig" : {
+                "fos" : 1
+            }
+        }
     },
     "inate" : {
         "primary" : {
@@ -52,23 +57,18 @@ var accrobaticWarrior = {
                     "bonus" : 5,
                     "max" : 50
                 },
-                "dodge" : {
+                "block" : {
                     "bonus" : 5,
                     "max" : 50
+                },
+                "armor" : {
+                    "bonus" : 5
                 }
             }
         },
         "secondary" : {
-            "ath" : {
-                "acro" : 10,
-                "jump" : 10,
-                "athl" : 10
-            },
-            "soc" : {
-                "style" : 10
-            },
-            "cre" : {
-                "sloh" : 10
+            "vig" : {
+                "fos" : 5
             }
         }
     }
