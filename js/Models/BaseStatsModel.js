@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var BaseStatsModel= Backbone.View.extend({
+var BaseStatsModel = Backbone.Model.extend({
     initialize: function(options) {},
     attributes: {
 		stats: [0, 0, 0, 0, 0, 0, 0, 0],

@@ -1,4 +1,4 @@
-{
+var assassian = {
     "info" : {
         "description" : "Assassians are characters who specialize in subterfuge and intrigue. They move in anonymity and prefer that their victims die not knowing who killed them. The use very refined techniques that help them avoid open combat, as they are very vulnerable in direct confrontations. When their work is done they face once again into the shadows. Of course, characters from this class are not necessarily obligated to perform the roll of hitmen within a society. There are many other ways that their special abilities can be useful - such as in espionage."
     },

@@ -37,13 +37,13 @@ var accrobaticWarrior = {
         }
     },
     "secondary" : {
-        "ath" : 2,
-        "soc" : 2,
-        "per" : 2,
-        "int" : 3,
-        "vig" : 2,
-        "sub" : 2,
-        "cre" : 2
+        "athletics" : 2,
+        "social" : 2,
+        "perceptive" : 2,
+        "intelligence" : 3,
+        "vigor" : 2,
+        "subterfuge" : 2,
+        "creative" : 2
     },
     "inate" : {
         "primary" : {
@@ -59,16 +59,16 @@ var accrobaticWarrior = {
             }
         },
         "secondary" : {
-            "ath" : {
-                "acro" : 10,
+            "athletics" : {
+                "acrobatics" : 10,
                 "jump" : 10,
-                "athl" : 10
+                "athleticism" : 10
             },
-            "soc" : {
+            "social" : {
                 "style" : 10
             },
-            "cre" : {
-                "sloh" : 10
+            "creative" : {
+                "sleightOfHand" : 10
             }
         }
     }

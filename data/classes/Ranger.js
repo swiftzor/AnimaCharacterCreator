@@ -37,21 +37,21 @@ var ranger = {
         }
     },
     "secondary" : {
-        "ath" : 2,
-        "soc" : 2,
-        "per" : 1,
-        "int" : 3,
-        "vig" : 3,
-        "sub" : 2,
-        "cre" : 2,
+        "athletics" : 2,
+        "social" : 2,
+        "perceptive" : 1,
+        "intelligence" : 3,
+        "vigor" : 3,
+        "subterfuge" : 2,
+        "creative" : 2,
         "reduced" : {
             "int" : {
-                "anim" : 1,
-                "medi" : 2,
-                "herb" : 2
+                "animals" : 1,
+                "medicine" : 2,
+                "herbalLore" : 2
             },
             "sub" : {
-                "trap" : 1
+                "trapLore" : 1
             }
         }
     },
@@ -65,17 +65,17 @@ var ranger = {
             }
         },
         "secondary" : {
-            "per" : {
-                "noti" : 10,
-                "sech" : 10,
-                "trak" : 10
+            "perceptive" : {
+                "notice" : 10,
+                "search" : 10,
+                "track" : 10
             },
-            "sub" : {
-                "trap" : 5
+            "subterfuge" : {
+                "trapLore" : 5
             },
-            "int" : {
-                "anim" : 5,
-                "herb" : 5
+            "intelligence" : {
+                "animals" : 5,
+                "herbalLore" : 5
             }
         }
     }
