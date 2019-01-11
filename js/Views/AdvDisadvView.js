@@ -15,6 +15,9 @@ var AdvDisadvView = Backbone.View.extend({
 	initialize: function(options)
 	{
 		this.render();
+		this.page = options.page;
+		console.log(this.page);
+		this.page.callFromChild();
 	},
 	attributes: {
 		sections: [{category: "Advantages", id: "advantages", btn: "success"}, {category: "Disadvantages", id: "disadvantages", btn: "danger"}],
@@ -36,6 +39,7 @@ var AdvDisadvView = Backbone.View.extend({
 	},
 	addAdvantage: function() {
 		console.log('adding advantage');
+		this.page.openModal('adv');
 	},
 	addDisadvantage: function() {
 		var len = this.attributes.disadvantages.length;		

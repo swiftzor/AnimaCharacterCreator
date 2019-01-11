@@ -12,6 +12,6 @@
 	 attributes: 
 	 {
 		 baseModel: {},
-		 infoModal: {}
+		 infoModel: {}
 	 }
  });

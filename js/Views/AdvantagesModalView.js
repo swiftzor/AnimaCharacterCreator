@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
  
- var CharacterInfoModalView = Backbone.View.extend({
+ var AdvantagesModalView = Backbone.View.extend({
 	el: '#modal-content',
 	events: 
 	{
@@ -12,10 +12,8 @@
 	},
 	initialize: function(options) 
 	{
-		console.log('hi');
 		$('#modal-lg').modal('toggle');
-		this.model = options.model;
-        this.render();
+		this.render();
 	},
 	attributes:
 	{
@@ -23,7 +21,8 @@
 	},
 	render: function()
 	{
-		$('#modal-header').html('<h1>Edit Character Info</h1>');
-		$('#modal-footer').html('<button type="button" class="btn btn-light" data-dismiss="modal">Okay</button>');
+		$('#modal-header').html('<h1>Add Advantage</h1>');
+		$('#modal-footer').html('<button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>' +
+			'<button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>');
 	}
 });
