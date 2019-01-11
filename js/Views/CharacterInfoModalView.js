@@ -24,6 +24,7 @@
 	render: function()
 	{
 		$('#modal-header').html('<h1>Edit Character Info</h1>');
+		$('#modal-body').html();
 		$('#modal-footer').html('<button type="button" class="btn btn-light" data-dismiss="modal">Okay</button>');
 	}
 });
