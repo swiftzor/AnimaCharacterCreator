@@ -31,7 +31,7 @@ var AdvDisadvView = Backbone.View.extend({
 	},
 	template: "<br>{{#sections}}<div class='col-xs-6'><h3>{{category}}</h3><br><div class='col-sm-10'><ul class='list-group' id='{{id}}'></ul>" +
 		"<button class='btn btn-{{btn}} pull-right' id='{{id}}Add'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></button></div></div></div>{{/sections}}",
-	displayTemplate: "{{#items}}<li class='list-group-item' id='{{type}}{{count}}'><span class='badge badge-secondary pull-left'>{{cost}}</span>&emsp;{{name}}" +
+	displayTemplate: "{{#items}}<li class='list-group-item' id='{{type}}{{count}}' aria-type='{{type}}'><span class='badge badge-secondary pull-left'>{{cost}}</span>&emsp;{{name}}" +
 		"<button type='button' class='remove close'><span aria-hidden='true'>&times;</span></button></li>{{/items}}",
 	render: function() 
 	{
@@ -43,7 +43,7 @@ var AdvDisadvView = Backbone.View.extend({
 	},
 	populateAdvantage: function(adv) {
 		adv.type = 'advantage';
-		adv.count = this.advNum += 1;
+		adv.count = this.attributes.advNum += 1;
 		this.attributes.addCount += 1;
 		var len = this.attributes.advantages.length;
 		this.attributes.advantages[len] = adv;
@@ -51,11 +51,13 @@ var AdvDisadvView = Backbone.View.extend({
 		$('#advantages').append(html);
 	},
 	addDisadvantage: function() {
-		this.page.openModal('adv', {type : 'disAdv'});
+		if( this.attributes.disaddCount < 3) {
+			this.page.openModal('adv', {type : 'disAdv'});
+		}
 	},
 	populateDisadvantage: function(disAdv) {
 		disAdv.type = 'disadvantage';
-		disAdv.count = this.disAdvNum += 1;
+		disAdv.count = this.attributes.disAdvNum += 1;
 		this.attributes.disaddCount += 1;
 		var len = this.attributes.disadvantages.length;
 		this.attributes.disadvantages[len] = disAdv;
@@ -65,7 +67,13 @@ var AdvDisadvView = Backbone.View.extend({
 	removeElement: function(e) 
 	{
 		var elem = $(e.target).parent().parent();
+		var type = elem.attr('aria-type');
+		if(type == 'advantage') {
+			this.attributes.addCount -= 1;
+		}
+		else if(type == 'disadvantage') {
+			this.attributes.disaddCount -= 1;
+		}
 		elem.remove();
-		//this.attributes.disaddCount -= 1;
 	}
 });
