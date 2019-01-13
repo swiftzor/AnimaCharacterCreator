@@ -17,14 +17,15 @@ var AdvDisadvView = Backbone.View.extend({
 		this.render();
 		this.page = options.page;
 		console.log(this.page);
-		this.page.callFromChild();
 	},
 	attributes: {
 		sections: [{category: "Advantages", id: "advantages", btn: "success"}, {category: "Disadvantages", id: "disadvantages", btn: "danger"}],
 		advantages: [],
 		disadvantages: [],
 		addCount: 0,
+		advNum: 0,
 		disaddCount: 0,
+		disAdvNum: 0,
 		addCountCategories: [0, 0, 0, 0],
 		disaddCountCategories: [0, 0, 0, 0]
 	},
@@ -38,16 +39,28 @@ var AdvDisadvView = Backbone.View.extend({
 		this.$el.html(html)
 	},
 	addAdvantage: function() {
-		console.log('adding advantage');
-		this.page.openModal('adv');
+		this.page.openModal('adv', {type: 'adv'});
+	},
+	populateAdvantage: function(adv) {
+		adv.type = 'advantage';
+		adv.count = this.advNum += 1;
+		this.attributes.addCount += 1;
+		var len = this.attributes.advantages.length;
+		this.attributes.advantages[len] = adv;
+		var html = Mustache.to_html(this.displayTemplate, {items: this.attributes.advantages[len] });
+		$('#advantages').append(html);
 	},
 	addDisadvantage: function() {
-		var len = this.attributes.disadvantages.length;		
+		this.page.openModal('adv', {type : 'disAdv'});
+	},
+	populateDisadvantage: function(disAdv) {
+		disAdv.type = 'disadvantage';
+		disAdv.count = this.disAdvNum += 1;
 		this.attributes.disaddCount += 1;
-		var disadds = $('#disadvantages');
-		this.attributes.disadvantages[len] = {type: 'disadvantage', count: len, cost: 2, name: 'test'};
+		var len = this.attributes.disadvantages.length;
+		this.attributes.disadvantages[len] = disAdv;
 		var html = Mustache.to_html(this.displayTemplate, {items: this.attributes.disadvantages[len] });
-		disadds.append(html);
+		$('#disadvantages').append(html);
 	},
 	removeElement: function(e) 
 	{
